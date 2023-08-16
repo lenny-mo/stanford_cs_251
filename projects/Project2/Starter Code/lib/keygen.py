@@ -7,5 +7,4 @@ SelectParams('testnet')
 seckey = CBitcoinSecret.from_secret_bytes(urandom(32))
 
 print("Private key: %s" % seckey)
-print("Address: %s" %
-      P2PKHBitcoinAddress.from_pubkey(seckey.pub))
+print("Address: %s" % P2PKHBitcoinAddress.from_pubkey(seckey.pub))

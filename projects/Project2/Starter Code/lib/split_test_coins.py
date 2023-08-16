@@ -37,15 +37,22 @@ if __name__ == '__main__':
 
     ######################################################################
     # TODO: set these parameters correctly
-    private_key = None
+    ## 1. 在此处把config文件的myself, alice, bob的privatekey对象拷贝过来
+    private_key = CBitcoinSecret(
+    'cUae5GMgjstodGCA8RowUxZkoPb8PhhHFvSZc3cftnM1mT83LvqR')
+
     public_key = private_key.pub
     address = P2PKHBitcoinAddress.from_pubkey(public_key)
 
-    amount_to_send = None # amount of BTC in the output you're splitting minus fee
+    ## 2. 根据发送测试代币的交易输出的金额，设置amount_to_send
+    amount_to_send = 0.00013372 # amount of BTC in the output you're splitting minus fee
+    ## 3. 根据水龙头的交易id，设置txid_to_spend·
     txid_to_spend = (
-        'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX')
-    utxo_index = None # index of the output you are spending, indices start at 0
-    n = None # number of outputs to split the input into
+        'd1ea0d700767c81e6ba7c4fa25e83b5122f1ae34a905d882c108754489b939b2')
+    ## 4. 一般都是1
+    utxo_index = 1 # index of the output you are spending, indices start at 0
+    ## 5. 根据需要分割的份数，设置n，保险起见，n可以设置大一点
+    n = 8 # number of outputs to split the input into
     # For n, choose a number larger than what you immediately need, 
     # in case you make mistakes.
     ######################################################################
