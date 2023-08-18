@@ -14,14 +14,6 @@ def P2PKH_scriptPubKey(address):
     ## get pubkey hash from address
     pubkey_hash = P2PKHBitcoinAddress.to_scriptPubKey(address)
     return pubkey_hash
-    # return [
-    #     # fill this in!
-    #     OP_DUP,
-    #     OP_HASH160,
-    #     pubkey_hash,
-    #     OP_EQUALVERIFY,
-    #     OP_CHECKSIG
-    # ]
     ######################################################################
 
 
@@ -59,7 +51,6 @@ def send_from_P2PKH_transaction(amount_to_send,
     txin_scriptSig = P2PKH_scriptSig(txin, txout, txin_scriptPubKey,
         sender_private_key, sender_public_key)
 
-    ## BUG: EvalScript: OP_EQUALVERIFY failed
     new_tx = create_signed_transaction(txin, txout, txin_scriptPubKey,
                                     txin_scriptSig)
 
