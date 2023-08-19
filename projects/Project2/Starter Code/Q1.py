@@ -13,6 +13,7 @@ def P2PKH_scriptPubKey(address):
     
     ## get pubkey hash from address
     pubkey_hash = P2PKHBitcoinAddress.to_scriptPubKey(address)
+    
     return pubkey_hash
     ######################################################################
 
@@ -56,14 +57,13 @@ def send_from_P2PKH_transaction(amount_to_send,
 
     return broadcast_transaction(new_tx, network)
 
-
 if __name__ == '__main__':
     ######################################################################
     # TODO: set these parameters correctly
-    amount_to_send = 0.000011 # amount of BTC in the output you're sending minus fee
+    amount_to_send = 0.00002288 # amount of BTC in the output you're sending minus fee
     txid_to_spend = (
-        'f45b7e08854c6760890e795e3e4d73aaf483dc1efb3985b0ca486dc584440e79')
-    utxo_index = 1 # index of the output you are spending, indices start at 0
+        '971da6e3b44795d4ab9c68f1337841944ea051857971ffd17d8aec1134cda121')
+    utxo_index = 0 # index of the output you are spending, indices start at 0
     ######################################################################
 
     txout_scriptPubKey = P2PKH_scriptPubKey(faucet_address)
